@@ -1,22 +1,74 @@
-# create-rust-workspace.sh
+# Rust Workspace Scripts
 
-## What is create-rust-workspace.sh?
+Two shell scripts for automating the creation of Rust workspaces:
+- **create-rust-workspace.sh** - Local zsh script
+- **rust-workspace-piped.sh** - POSIX-compliant script for piped execution
 
-A shell script that automates the creation of Rust workspaces. 
-It streamlines the setup process by:
-
+Both scripts streamline the setup process by:
 - Creating a new workspace directory
 - Generating a properly configured `Cargo.toml` workspace file
-- Optionally creating an initial cargo project (library or binary)
-- Automatically adding the project to the workspace members
+- Interactively creating an initial cargo project (library or binary)
+- Automatically adding the project to workspace members
 
-This eliminates the manual steps of setting up a Rust workspace and ensures consistent configuration across projects.
+---
 
-## How to use create-rust-workspace.sh?
+## rust-workspace-piped.sh
+
+### What is it?
+
+A POSIX-compliant shell script that can be downloaded and executed directly from the internet, similar to the Rust installer. Works on any Unix-like system (Linux, macOS, BSD, etc.).
 
 ### Prerequisites
 
-- Rust and Cargo installed on your system
+- Rust and Cargo installed
+- `curl` or `wget` for downloading
+- Any POSIX-compliant shell (sh, bash, zsh, etc.)
+
+### Usage
+
+#### Method 1: Direct execution from URL (recommended)
+
+```sh
+curl -sSf https://github.com/dandde/rust-workspace-shell/blob/main/create-rust-workspace.sh/rust-workspace-piped.sh | sh
+```
+
+Or with `wget`:
+```sh
+wget -qO- https://github.com/dandde/rust-workspace-shell/blob/main/create-rust-workspace.sh/rust-workspace-piped.sh | sh
+```
+
+#### Method 2: Download and run locally
+
+```sh
+curl -sSf -O https://github.com/dandde/rust-workspace-shell/blob/main/create-rust-workspace.sh/rust-workspace-piped.sh
+chmod +x rust-workspace-piped.sh
+./rust-workspace-piped.sh
+```
+
+#### Method 3: Run with workspace name argument
+
+```sh
+curl -sSf https://github.com/dandde/rust-workspace-shell/blob/main/create-rust-workspace.sh/rust-workspace-piped.sh | sh -s my-workspace
+```
+
+### Security Note
+
+Only run scripts from trusted sources. Inspect before running:
+```sh
+curl -sSf https://example.com/rust-workspace-piped.sh | less
+```
+
+---
+
+## create-rust-workspace.sh
+
+### What is it?
+
+A local zsh script optimized for macOS users.
+
+### Prerequisites
+
+- Rust and Cargo installed
 - Zsh shell (default on macOS)
 
 ### Usage
@@ -38,7 +90,7 @@ This eliminates the manual steps of setting up a Rust workspace and ensures cons
      - `[2]` bin - Creates a binary/executable project
    - **Project name**: Enter a name for your initial cargo project
 
-### Example
+### Example Session
 
 ```zsh
 $ ./create-rust-workspace.sh
@@ -59,6 +111,18 @@ Workspace is ready!
   cd my-workspace
   cargo build
 ```
+
+---
+
+## Interactive Prompts (Both Scripts)
+
+When you run either script, you'll be prompted for:
+
+1. **Workspace name** (if not provided as argument)
+2. **Project type**:
+   - `[1]` lib (default) - Creates a library project
+   - `[2]` bin - Creates a binary/executable project
+3. **Project name** - Name for your initial cargo project
 
 ### What gets created
 

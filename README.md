@@ -29,18 +29,18 @@ A POSIX-compliant shell script that can be downloaded and executed directly from
 #### Method 1: Direct execution from URL (recommended)
 
 ```sh
-curl -sSf https://github.com/dandde/rust-workspace-shell/blob/main/create-rust-workspace.sh/rust-workspace-piped.sh | sh
+curl -sSf https://github.com/dandde/rust-workspace-shell/blob/main/rust-workspace-piped.sh | sh
 ```
 
 Or with `wget`:
 ```sh
-wget -qO- https://github.com/dandde/rust-workspace-shell/blob/main/create-rust-workspace.sh/rust-workspace-piped.sh | sh
+wget -qO- https://github.com/dandde/rust-workspace-shell/blob/main/rust-workspace-piped.sh | sh
 ```
 
 #### Method 2: Download and run locally
 
 ```sh
-curl -sSf -O https://github.com/dandde/rust-workspace-shell/blob/main/create-rust-workspace.sh/rust-workspace-piped.sh
+curl -sSf -O https://github.com/dandde/rust-workspace-shell/blob/main/rust-workspace-piped.sh
 chmod +x rust-workspace-piped.sh
 ./rust-workspace-piped.sh
 ```
@@ -48,7 +48,7 @@ chmod +x rust-workspace-piped.sh
 #### Method 3: Run with workspace name argument
 
 ```sh
-curl -sSf https://github.com/dandde/rust-workspace-shell/blob/main/create-rust-workspace.sh/rust-workspace-piped.sh | sh -s my-workspace
+curl -sSf https://github.com/dandde/rust-workspace-shell/blob/main/rust-workspace-piped.sh | sh -s my-workspace
 ```
 
 ### Security Note
